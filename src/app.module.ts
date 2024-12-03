@@ -1,19 +1,20 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { PaymentModule } from './payment/payment.module';
-import { Subscription } from './subscription/subscription.entity';
-import { SubscriptionModule } from './subscription/subscription.module';
+import { PaymentModule } from './payment/payment.module'; // Your module
+import { SubscriptionModule } from './subscription/subscription.module'; // Your module
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'postgres',
+      type: 'mysql',
       host: 'localhost',
-      port: 5432,
-      username: 'test',
-      password: 'test',
-      database: 'test',
-      entities: [Subscription],
+      port: 3306,
+      username: 'root',
+      password: 'root',
+      database: 'subscription_db',
+      entities: [
+        /* Your entities here */
+      ],
       synchronize: true,
     }),
     SubscriptionModule,
